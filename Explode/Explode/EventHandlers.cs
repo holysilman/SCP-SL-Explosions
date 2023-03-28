@@ -19,7 +19,7 @@
         {
             float randNext = (float)Plugin.Random.NextDouble();
             Log.Info(randNext.ToString());
-            if (randNext <= Plugin.Instance.Config.ExplodeChance)
+            if (randNext <= Plugin.Instance.Config.ExplodeChance && Plugin.Instance.Config.IsExplosive)
             {
                 InventoryItemLoader.AvailableItems.TryGetValue(ItemType.GrenadeHE, out ItemBase itemBase);
                 ThrowableItem throwableItem = (ThrowableItem)itemBase;
@@ -129,7 +129,7 @@
                     player.EffectsManager.EnableEffect<Concussed>(Plugin.Instance.Config.Duration);
                     break;
                 case (int)Config.CoinEffects.Corroding:
-                    player.EffectsManager.EnableEffect<Corroding>(Plugin.Instance.Config.Duration);
+                    player.EffectsManager.EnableEffect<Corroding>(10000);
                     break;
                 case (int)Config.CoinEffects.Deafened:
                     player.EffectsManager.EnableEffect<Deafened>(Plugin.Instance.Config.Duration);

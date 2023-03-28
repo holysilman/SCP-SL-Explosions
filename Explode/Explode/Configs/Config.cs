@@ -8,6 +8,9 @@ namespace Explode
         [Description("Chance to explode while sprinting")]
         public float ExplodeChance { get; set; } = 0.1f;
 
+        [Description("Toggle whether explosions can activate on coin flip")]
+        public bool IsExplosive { get; set; } = true;
+
         [Description("Toggle to enable or disable giving effects/items for flipping coin")]
         public bool HasEffects { get; set; } = true;
         [Description("Toggle to remove coin after being flipped")]

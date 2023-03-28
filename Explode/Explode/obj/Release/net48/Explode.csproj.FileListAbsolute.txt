@@ -17,3 +17,4 @@ C:\Users\silas\source\repos\Explode-Plugin\Explode\Explode\obj\Release\net48\Exp
 C:\Users\silas\source\repos\Explode-Plugin\Explode\Explode\bin\Release\net48\Mirror.dll
 C:\Users\silas\source\repos\Explode-Plugin\Explode\Explode\bin\Release\net48\UnityEngine.IMGUIModule.dll
 C:\Users\silas\source\repos\Explode-Plugin\Explode\Explode\bin\Release\net48\UnityEngine.TextRenderingModule.dll
+C:\Users\silas\source\repos\Explode-Plugin\Explode\Explode\obj\Release\net48\Explode.csproj.AssemblyReference.cache
