@@ -60,8 +60,20 @@
             int value = (int)Math.Floor(effect / 10.0f);
             Log.Info(value.ToString());
 
+            if (value == (int)Config.CoinEffects.Corroding)
+            {
+                Log.Info("AAA");
+                player.ReceiveHint("<b>You have had <color=yellow>Corrosion</color> applied</b>", 2.0f);
+            }
+            else
+            {
+                Log.Info("BBB");
+                player.ReceiveHint(
+                    Plugin.Instance.Config.FlipMessage.Replace("{effect}",((Config.CoinEffects)value).ToString()), 2.0f);
+            }
+
             // Applies the effect to the player
-            switch(value)
+            switch (value)
             {
                 case (int)Config.CoinEffects.BodyshotReduction:
                     player.EffectsManager.EnableEffect<BodyshotReduction>(Plugin.Instance.Config.Duration);
@@ -176,7 +188,7 @@
                     player.EffectsManager.EnableEffect<Burned>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<CardiacArrest>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<Concussed>(Plugin.Instance.Config.Duration);
-                    player.EffectsManager.EnableEffect<Corroding>(Plugin.Instance.Config.Duration);
+                    player.EffectsManager.EnableEffect<Corroding>(10000);
                     player.EffectsManager.EnableEffect<Deafened>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<Decontaminating>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<Disabled>(Plugin.Instance.Config.Duration);

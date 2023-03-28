@@ -5,6 +5,9 @@ namespace Explode
 {
     public class Config
     {
+        [Description("What message will be displayed when using the coin")]
+        public string FlipMessage { get; set; } = "<b>You have had <color=yellow>{effect}</color> applied for 10 seconds</b>";
+                                                        
         [Description("Chance to explode while sprinting")]
         public float ExplodeChance { get; set; } = 0.1f;
 
