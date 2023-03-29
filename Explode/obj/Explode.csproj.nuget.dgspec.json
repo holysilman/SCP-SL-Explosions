@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\silas\\source\\repos\\Explode-Plugin\\Explode\\Explode\\Explode.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\silas\\source\\repos\\Explode-Plugin\\Explode\\Explode\\Explode.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\silas\\source\\repos\\Explode-Plugin\\Explode\\Explode\\Explode.csproj",
+        "projectName": "Explode",
+        "projectPath": "C:\\Users\\silas\\source\\repos\\Explode-Plugin\\Explode\\Explode\\Explode.csproj",
+        "packagesPath": "C:\\Users\\silas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\silas\\source\\repos\\Explode-Plugin\\Explode\\Explode\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\silas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
