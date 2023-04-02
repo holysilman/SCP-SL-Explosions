@@ -4,11 +4,13 @@
     using PluginAPI.Enums;
     using PluginAPI.Core;
     using PluginAPI.Core.Items;
+    using PluginAPI.Core.Zones;
     using UnityEngine;
     using Footprinting;
     using InventorySystem;
     using InventorySystem.Items;
     using InventorySystem.Items.ThrowableProjectiles;
+    using PlayerStatsSystem;
     using CustomPlayerEffects;
     using System;
 
@@ -62,16 +64,13 @@
 
             if (value == (int)Config.CoinEffects.Corroding)
             {
-                Log.Info("AAA");
                 player.ReceiveHint("<b>You have had <color=yellow>Corrosion</color> applied</b>", 2.0f);
             }
             else
             {
-                Log.Info("BBB");
                 player.ReceiveHint(
                     Plugin.Instance.Config.FlipMessage.Replace("{effect}",((Config.CoinEffects)value).ToString()), 2.0f);
             }
-
             // Applies the effect to the player
             switch (value)
             {
@@ -105,7 +104,19 @@
                 case (int)Config.CoinEffects.SCP207:
                     player.EffectsManager.EnableEffect<Scp207>(Plugin.Instance.Config.Duration);
                     break;
+                case (int)Config.CoinEffects.Shield:
+                    player.GetStatModule<AhpStat>().ServerAddProcess(30);
+                    break;
+                case (int)Config.CoinEffects.Overheal:
+                    player.Health = 150;
+                    break;
+                case (int)Config.CoinEffects.Freedom:
+                    TeleportPlayer(player);
+                    break;
                 case (int)Config.CoinEffects.HotDamn:
+                    player.GetStatModule<AhpStat>().ServerAddProcess(30);
+                    player.Health = 150;
+                    TeleportPlayer(player);
                     player.EffectsManager.EnableEffect<BodyshotReduction>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<DamageReduction>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<Invigorated>(Plugin.Instance.Config.Duration);
@@ -179,7 +190,11 @@
                 case (int)Config.CoinEffects.Traumatized:
                     player.EffectsManager.EnableEffect<Traumatized>(Plugin.Instance.Config.Duration);
                     break;
+                case (int)Config.CoinEffects.SCP939Vision:
+                    player.EffectsManager.EnableEffect<InsufficientLighting>(Plugin.Instance.Config.Duration);
+                    break;
                 case (int)Config.CoinEffects.Suffer:
+                    player.EffectsManager.EnableEffect<InsufficientLighting>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<AmnesiaVision>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<AmnesiaItems>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<Asphyxiated>(Plugin.Instance.Config.Duration);
@@ -203,7 +218,24 @@
                     player.EffectsManager.EnableEffect<Traumatized>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<Decontaminating>(Plugin.Instance.Config.Duration);
                     break;
+            }
+        }
 
+        private void TeleportPlayer(Player player)
+        {
+            // Random using valid rooms undder the Room Name enum
+            int room = Plugin.Random.Next(1, 38);
+            while(room == 35 || room == 26 || room == 37 || room == 27 || room == 28 || room == 7 || room == 30)
+            {
+                room = Plugin.Random.Next(1, 38);
+            }
+            foreach(var facRoom in Facility.Rooms)
+            {
+                if((int)facRoom.Identifier.Name == room)
+                {
+                    Log.Info(room.ToString());
+                    player.GameObject.transform.position = facRoom.Transform.position + Vector3.up;
+                }
             }
         }
     }

@@ -22,10 +22,10 @@ namespace Explode
         public int Duration { get; set; } = 10;
 
         [Description("Number of good effects. Only modify to be less than or equal to 10")]
-        public int NumGoodEffects { get; set; } = 10;
+        public int NumGoodEffects { get; set; } = 13;
 
         [Description("Number of badd effects. Only modify to be less than or equal to 20")]
-        public int NumBadEffects { get; set; } = 20;
+        public int NumBadEffects { get; set; } = 21;
 
         [Description("Decimal representing percent chance to have the extreme effects occur. Will not completely make it 100% if set to 1")]
         public float PercentExtremes { get; set; } = 0.01f;
@@ -43,6 +43,9 @@ namespace Explode
             Rainbow,
             Vitality,
             SCP207,
+            Shield,
+            Overheal,
+            Freedom,
             HotDamn,
             Amnesia,
             Asphyxiated,
@@ -64,6 +67,7 @@ namespace Explode
             Sinkhole,
             Stained,
             Traumatized,
+            SCP939Vision,
             Suffer
         };
     }
