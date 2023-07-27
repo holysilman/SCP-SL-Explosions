@@ -114,7 +114,7 @@
                     TeleportPlayer(player);
                     break;
                 case (int)Config.CoinEffects.HotDamn:
-                    player.ArtificialHealth = 30;
+                    player.GetStatModule<AhpStat>().ServerAddProcess(30);
                     player.Health = 150;
                     TeleportPlayer(player);
                     player.EffectsManager.EnableEffect<BodyshotReduction>(Plugin.Instance.Config.Duration);
@@ -127,6 +127,7 @@
                     player.EffectsManager.EnableEffect<RainbowTaste>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<Vitality>(Plugin.Instance.Config.Duration);
                     player.EffectsManager.EnableEffect<Scp207>(Plugin.Instance.Config.Duration);
+                    player.EffectsManager.DisableEffect<Poisoned>();
                     break;
                 // Negative effects begin here
                 case (int)Config.CoinEffects.Amnesia:
